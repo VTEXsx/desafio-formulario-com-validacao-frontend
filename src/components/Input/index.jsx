@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 function Input({ type, text, id, register }) {
   return (
-    <>
+    <div className="flex flex-col">
       <label className="text-white/50 font-bold mb-2" htmlFor={id}>
         {text}
       </label>
@@ -12,14 +12,14 @@ function Input({ type, text, id, register }) {
         id={id}
         {...register}
       />
-    </>
+    </div>
   );
 }
 
 Input.propTypes = {
   type: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   register: PropTypes.object.isRequired,
 };
 
