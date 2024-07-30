@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.Toastify__toast--success {
+ color: white;
+  background-color: #001d49; 
+}
+
+.Toastify__toast--error {
+  color: white;
+  background-color: #001d49;
+}

@@ -5,6 +5,7 @@ import { z } from "zod";
 import BtnSubmit from "../../components/BtnSubmit";
 import Input from "../../components/Input";
 import OptionSelect from "../../components/OptionSelect";
+import { toast } from "react-toastify";
 
 const signUpSchema = z
   .object({
@@ -55,7 +56,7 @@ function Register() {
     resolver: zodResolver(signUpSchema),
   });
   const onSubmit = (data) => {
-    console.log(`Cadastro realizado com sucesso! ${data}`);
+    toast.success("Cadastro realizado com sucesso!");
     localStorage.setItem("user", JSON.stringify(data));
     navigate("/");
   };

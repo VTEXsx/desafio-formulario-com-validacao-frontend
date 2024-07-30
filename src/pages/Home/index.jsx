@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Home() {
   const navigate = useNavigate();
@@ -14,9 +15,11 @@ function Home() {
   }, []);
 
   const handleLogout = () => {
+    toast.success("Desconectado com sucesso! realize um novo login para acessar o sistema");
     navigate("/");
   };
   const handleDeleteAccount = () => {
+    toast.success("Conta excluida com sucesso! realize um novo cadastro para acessar o sistema");
     localStorage.removeItem("user");
     navigate("/");
   }

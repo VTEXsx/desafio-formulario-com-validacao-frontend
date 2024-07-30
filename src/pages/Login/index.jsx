@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { z } from "zod";
 import BtnSubmit from "../../components/BtnSubmit";
 import Input from "../../components/Input";
+import { toast } from "react-toastify";
 const signInSchema = z.object({
   email: z.string().email({ message: "E-mail inválido" }),
   password: z
@@ -26,13 +27,13 @@ function Login() {
       const { email, password } = JSON.parse(storedUser);
 
       if (data.email === email && data.password === password) {
-        console.log("Login realizado com sucesso!");
+        toast.success("Login realizado com sucesso!");
         navigate("/home");
       } else {
-        console.log("E-mail ou senha incorretos");
+        toast.error("E-mail ou senha incorretos");
       }
     } else {
-      console.log("Nenhum usuário cadastrado encontrado");
+      toast.error("Nenhum usuário cadastrado encontrado");
       navigate("/register");
     }
   };
